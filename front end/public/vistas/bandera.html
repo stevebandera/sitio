@@ -1,0 +1,120 @@
+<div class="container">
+<h2>Bandera</h2>
+
+<div class="row">
+  <div class="col-sm">
+    <button class="btn btn-primary" type="button" ng-click="ejecutarBanderaFinal()">Ejecutar Bandera Final</button>
+  </div>
+  <div class="col-sm">
+    <div class="row">
+      <div class="col-1">
+      </div>
+      <div class="col-9">
+          <input type="text" class="form-control" ng-model="bandSolvUno" ng-class="bandClassUno" disabled>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="row">
+      <div class="col-1">
+          <span> - </span>
+      </div>
+      <div class="col-9">
+          <input type="text" class="form-control" ng-model="bandSolvDos" ng-class="bandClassDos" disabled>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="row">
+      <div class="col-1">
+          <span> - </span>
+      </div>
+      <div class="col-9">
+          <input type="text" class="form-control" ng-model="bandSolvTres" ng-class="bandClassTres" disabled>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="row">
+      <div class="col-1">
+          <span> - </span>
+      </div>
+      <div class="col-9">
+          <input type="text" class="form-control" ng-model="bandSolvCuatro"  ng-class="bandClassCuatro" disabled>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<hr>
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link" ng-class="bUnoEstado" ng-click="selectTab('b1')" href="#">Bandera 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" ng-class="bDosEstado" ng-click="selectTab('b2')"   href="#">Bandera 2</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" ng-class="bTresEstado" ng-click="selectTab('b3')"   href="#">Bandera 3</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" ng-class="bCuatroEstado" ng-click="selectTab('b4')"   href="#">Bandera 4</a>
+      </li>
+    </ul>
+  </div>
+  <div  ng-show="banderaUnoDiv">
+  <div class="card-body" id="banderaUnoDiv">
+    <h4 class="card-title">Bandera 1</h4>
+    <p class="card-text">Aca va la descripcion para que saquen la vandera.</p>
+
+    <label for="parametroBanderaUno">Parametro</label><br>
+    <input type="text" name="parametroBanderaUno" ng-model="parametroBanderaUno">
+    
+    <a href="#" class="btn btn-primary"  ng-click="ejecutarBandera('banderaUno')">Ejecutar</a>
+  </div>
+  </div>
+
+<div  ng-show="banderaDosDiv">
+  <div class="card-body" id="banderaDosDiv">
+    <h4 class="card-title">Bandera 2</h4>
+    <p class="card-text">Aca va la descripcion para que saquen la vandera.</p>
+
+    <label for="parametroBanderaDos">Parametro</label><br>
+    <input type="text" name="parametroBanderaDos" ng-model="parametroBanderaDos">
+    
+    <a href="#" class="btn btn-primary"  ng-click="ejecutarBandera('banderaDos')">Ejecutar</a>
+  </div>
+  </div>
+
+<div  ng-show="banderaTresDiv">
+  <div class="card-body" id="banderaTresDiv">
+    <h4 class="card-title">Bandera 3</h4>
+    <p class="card-text">Aca va la descripcion para que saquen la vandera.</p>
+
+    <label for="parametroBanderaTres">Parametro</label><br>
+    <input type="text" name="parametroBanderaTres" ng-model="parametroBanderaTres">
+    
+    <a href="#" class="btn btn-primary"  ng-click="ejecutarBandera('banderaTres')">Ejecutar</a>
+  </div>
+  </div>
+
+<div  ng-show="banderaCuatroDiv">
+  <div class="card-body" id="banderaCuatroDiv">
+    <h4 class="card-title">Bandera 4</h4>
+    <p class="card-text">Aca va la descripcion para que saquen la vandera.</p>
+
+    <label for="parametroBanderaCuatro">Parametro</label><br>
+    <input type="text" name="parametroBanderaCuatro" ng-model="parametroBanderaCuatro">
+    
+    <a href="#" class="btn btn-primary"  ng-click="ejecutarBandera('banderaCuatro')">Ejecutar</a>
+  </div>
+  </div>
+</div>
+
+
+
+</div>

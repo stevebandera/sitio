@@ -1,0 +1,7 @@
+FRONT END
+
+npm start
+
+BACK END
+
+nodemon index.js
