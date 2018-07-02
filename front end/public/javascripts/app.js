@@ -41,7 +41,7 @@ app.controller('inicio', function($scope,$http, $location, UserService){
 		};
 		console.log(data);
 
-		$http.post("http://localhost:8080/usuario/logIn",data).then(function(respuesta){
+		$http.post("http://banderahost:8080/usuario/logIn",data).then(function(respuesta){
 			console.log(respuesta);
 			if(respuesta.data!=[]){
 				UserService.setPermisos(respuesta.data[0]);
@@ -143,7 +143,7 @@ app.controller('bandera', function($scope,$http){
 		}
 		
 
-		$http.post("http://localhost:8080/bandera/ejecutarBandera",data)
+		$http.post("http://banderahost:8080/bandera/ejecutarBandera",data)
         .then(function(respuesta){
         	if(respuesta.data.length > 0){
         		switch(value) {
@@ -184,7 +184,7 @@ app.controller('bandera', function($scope,$http){
 			parmCuatro:$scope.bandSolvCuatro
 		};
 		
-		$http.post("http://localhost:8080/bandera/ejecutarBanderaFinal",data)
+		$http.post("http://banderahost:8080/bandera/ejecutarBanderaFinal",data)
         .then(function(respuesta){
         	if(respuesta.data.length > 0){
         		
