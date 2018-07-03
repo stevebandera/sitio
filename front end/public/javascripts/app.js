@@ -32,7 +32,7 @@ app.factory('UserService', function($rootScope) {
   		setPermisos : setPermisos
 	};
 });
-
+//banderahost
 app.controller('inicio', function($scope,$http, $location, UserService){
 	$scope.logIn = function(){
 		var data = {
@@ -61,6 +61,7 @@ app.controller('inicio', function($scope,$http, $location, UserService){
 
 app.controller('bandera', function($scope,$http){
 	var init = function(){
+		$scope.parametroBanderaTresError = "bTresPrueba";
 		$scope.banderaUnoDiv = true;
 		$scope.banderaDosDiv = false;
 		$scope.banderaTresDiv = false;
@@ -83,6 +84,10 @@ app.controller('bandera', function($scope,$http){
 	}
 
 	initClass();
+
+	$scope.displayData = function(){
+		$scope.dataParmDos = "ncu fqu rcncdtcu uqp ekhtcfq ecguct";
+	}
 
 	$scope.selectTab = function(value){
 		$scope.banderaUnoDiv = false;

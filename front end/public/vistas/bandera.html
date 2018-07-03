@@ -48,6 +48,8 @@
 
 
 <hr>
+<p>- Cada parametro tiene un cifrado diferente relacionado con su pista</p>
+<hr>
 
 <div class="card text-center">
   <div class="card-header">
@@ -69,7 +71,7 @@
   <div  ng-show="banderaUnoDiv">
   <div class="card-body" id="banderaUnoDiv">
     <h4 class="card-title">Bandera 1</h4>
-    <p class="card-text">Aca va la descripcion para que saquen la vandera.</p>
+    <p class="card-text">{l loaea  s np eoael ls sacribierrtsvaate}<span style="text-color=white">//This is Sparta! *10 columnas*//</span></p>
 
     <label for="parametroBanderaUno">Parametro</label><br>
     <input type="text" name="parametroBanderaUno" ng-model="parametroBanderaUno">
@@ -81,8 +83,8 @@
 <div  ng-show="banderaDosDiv">
   <div class="card-body" id="banderaDosDiv">
     <h4 class="card-title">Bandera 2</h4>
-    <p class="card-text">Aca va la descripcion para que saquen la vandera.</p>
-
+    <p class="card-text">Veni, vidi, vici.<button hidden="true" ng-click="displayData()" disabled>no tocar</button></p>
+    <span>{<span>{{dataParmDos}}</span>}</span>
     <label for="parametroBanderaDos">Parametro</label><br>
     <input type="text" name="parametroBanderaDos" ng-model="parametroBanderaDos">
     
@@ -93,10 +95,12 @@
 <div  ng-show="banderaTresDiv">
   <div class="card-body" id="banderaTresDiv">
     <h4 class="card-title">Bandera 3</h4>
-    <p class="card-text">Aca va la descripcion para que saquen la vandera.</p>
+    <p class="card-text">{iadpmhkmcqfpta}</p>
+    <span>En los anillos la A coincide con la m, y el movil no se mueve.</span>
 
     <label for="parametroBanderaTres">Parametro</label><br>
-    <input type="text" name="parametroBanderaTres" ng-model="parametroBanderaTres">
+    <input type="text" name="parametroBanderaTres" ng-model="parametroBanderaTresError">
+    <input type="text" name="parametroBanderaTres" ng-model="parametroBanderaTres" hidden="true">
     
     <a href="#" class="btn btn-primary"  ng-click="ejecutarBandera('banderaTres')">Ejecutar</a>
   </div>
@@ -105,8 +109,8 @@
 <div  ng-show="banderaCuatroDiv">
   <div class="card-body" id="banderaCuatroDiv">
     <h4 class="card-title">Bandera 4</h4>
-    <p class="card-text">Aca va la descripcion para que saquen la vandera.</p>
-
+    <p class="card-text">Maquina alemana 1918. {ddvrdeyvuunb}</p>
+    <span hidden="true">Rotor I/II/III - Posision A/A/A - Anillo A/A/A</span>
     <label for="parametroBanderaCuatro">Parametro</label><br>
     <input type="text" name="parametroBanderaCuatro" ng-model="parametroBanderaCuatro">
     
