@@ -1,8 +1,16 @@
 var Usuario = require('../modelos/usuario');
 
 var logIn = function(req,res){
-    var usuario = Usuario.find({user:req.body.userLogIn,
+    var usuario;
+    if(req.body.userLogIn.includes("'")||req.body.userLogIn.includes('"')||
+        req.body.passwordLogIn.includes("'")||req.body.passwordLogIn.includes('"')){
+        usuario = Usuario.find({user:"",
+                                password:""});
+    } else {
+        usuario = Usuario.find({user:req.body.userLogIn,
                                 password:req.body.passwordLogIn});
+    }
+    
     usuario.exec(function(err,respuesta){
         res.json(respuesta);
     });

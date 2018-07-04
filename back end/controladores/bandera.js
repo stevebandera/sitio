@@ -1,19 +1,36 @@
 var Bandera = require('../modelos/bandera');
 
 var ejecutarBandera = function(req,res){
-    var bandera = Bandera.find({banderaId:req.body.bandera,
-                                banderaParm:req.body.parametro});
+    var bandera;
+    if(req.body.bandera.includes("'")||req.body.bandera.includes('"')||
+        req.body.parametro.includes("'")||req.body.parametro.includes('"')){
+        bandera = Bandera.find({banderaId:"",
+                                    banderaParm:""});
+    } else {
+        bandera = Bandera.find({banderaId:req.body.bandera,
+                                    banderaParm:req.body.parametro});
+    }
+        
     bandera.exec(function(err,respuesta){
         res.json(respuesta);
     });
 }
 
 var ejecutarBanderaFinal = function(req,res){
-    var parametro = "" + req.body.parmUno + req.body.parmDos + req.body.parmTres + req.body.parmCuatro;
-    console.log(parametro);
-    var bandera = Bandera.find({banderaId:"banderaCinco",
-                                banderaParm:parametro});
-
+    var bandera;
+    if(req.body.parmUno.includes("'")||req.body.parmUno.includes('"')||
+        req.body.parmDos.includes("'")||req.body.parmDos.includes('"')||
+        req.body.parmTres.includes("'")||req.body.parmTres.includes('"')||
+        req.body.parmCuatro.includes("'")||req.body.parmCuatro.includes('"')){
+        bandera = Bandera.find({banderaId:"",
+                                    banderaParm:""});
+    } else {
+        var parametro = "" + req.body.parmUno + req.body.parmDos + req.body.parmTres + req.body.parmCuatro;
+        console.log(parametro);
+        bandera = Bandera.find({banderaId:"banderaCinco",
+                                    banderaParm:parametro});
+    }
+        
     bandera.exec(function(err,respuesta){
         res.json(respuesta);
     });

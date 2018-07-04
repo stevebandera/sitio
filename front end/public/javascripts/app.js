@@ -10,6 +10,9 @@ app.config(function($routeProvider,$locationProvider){
 	}).when('/inicio', {
 		templateUrl:"vistas/inicio.html",
 		controller : 'inicio'
+	}).when('/pista', {
+		templateUrl:"vistas/pista.html",
+		controller : 'inicio'
 	}).otherwise({
         redirectTo: "/"
     });
@@ -39,11 +42,10 @@ app.controller('inicio', function($scope,$http, $location, UserService){
 			userLogIn:$scope.userLogIn,
 			passwordLogIn:$scope.passwordLogIn
 		};
-		console.log(data);
 
 		$http.post("http://banderahost:8080/usuario/logIn",data).then(function(respuesta){
 			console.log(respuesta);
-			if(respuesta.data!=[]){
+			if(respuesta.data!= undefined && respuesta.data.length > 0){
 				UserService.setPermisos(respuesta.data[0]);
 				$scope.permisos = respuesta.data[0].permisos;
 				$scope.usuarioLoggeado = respuesta.data[0];
@@ -59,9 +61,9 @@ app.controller('inicio', function($scope,$http, $location, UserService){
 	}
 });
 
-app.controller('bandera', function($scope,$http){
+app.controller('bandera', function($scope,$http,$location,UserService){
 	var init = function(){
-		$scope.parametroBanderaTresError = "bTresPrueba";
+		$scope.parametroBanderaTresError = "cifrado tres";
 		$scope.banderaUnoDiv = true;
 		$scope.banderaDosDiv = false;
 		$scope.banderaTresDiv = false;
@@ -119,6 +121,10 @@ app.controller('bandera', function($scope,$http){
 	}
 
 	$scope.ejecutarBandera = function(value){
+		console.log(UserService.getPermisos());
+		if(UserService.getPermisos().permisos!="all"){
+			$location.path("/inicio");
+		}
 
 		var data = {
 			bandera:value
@@ -150,7 +156,7 @@ app.controller('bandera', function($scope,$http){
 
 		$http.post("http://banderahost:8080/bandera/ejecutarBandera",data)
         .then(function(respuesta){
-        	if(respuesta.data.length > 0){
+        	if(respuesta.data!= undefined && respuesta.data.length > 0){
         		switch(value) {
 				    case 'banderaUno':
 							$scope.bandSolvUno = respuesta.data[0].parmFinal;
@@ -182,6 +188,11 @@ app.controller('bandera', function($scope,$http){
 	}
 
 	$scope.ejecutarBanderaFinal = function(value){
+
+		if(UserService.getPermisos().permisos!="all"){
+			$location.path("/inicio");
+		}
+
 		var data = {
 			parmUno:$scope.bandSolvUno,
 			parmDos:$scope.bandSolvDos,
@@ -191,8 +202,8 @@ app.controller('bandera', function($scope,$http){
 		
 		$http.post("http://banderahost:8080/bandera/ejecutarBanderaFinal",data)
         .then(function(respuesta){
-        	if(respuesta.data.length > 0){
-        		
+        	if(respuesta.data!= undefined && respuesta.data.length > 0){
+        		alert("El nombre del archivo a buscar es '" + respuesta.data[0].parmFinal + "'");
             	console.log("OK");
         	} else {
         		console.log("ERROR");
